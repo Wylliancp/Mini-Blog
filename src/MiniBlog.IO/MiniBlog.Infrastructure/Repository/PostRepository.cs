@@ -30,7 +30,7 @@ namespace MiniBlog.Infrastructure.Repository
 
         public async Task<IEnumerable<Post>> GetAll()
         {
-            return _dbContext.Posts.AsQueryable().ToList();
+            return await _dbContext.Posts.AsQueryable().ToList();
         }
 
         public Task<Post> GetById(Guid id)

@@ -4,3 +4,12 @@
 
 /.vs
 /src/MiniBlog.IO/.vs/MiniBlog.IO/v15/.suo
+/src/MiniBlog.IO/MiniBlog.Aplication/bin/Debug/netstandard2.0
+/src/MiniBlog.IO/MiniBlog.Dependency.IoC/obj
+/src/MiniBlog.IO/.vs/MiniBlog.IO/DesignTimeBuild
+/src/MiniBlog.IO/.vs/MiniBlog.IO/v16
+/src/MiniBlog.IO/MiniBlog.Aplication/obj
+/src/MiniBlog.IO/MiniBlog.Domain/bin/Debug/netstandard2.0
+/src/MiniBlog.IO/MiniBlog.Domain/obj
+/src/MiniBlog.IO/MiniBlog.Infrastructure/bin/Debug/netstandard2.0
+/src/MiniBlog.IO/MiniBlog.Infrastructure/obj
