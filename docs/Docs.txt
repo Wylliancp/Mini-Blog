@@ -1,0 +1,22 @@
+Modelo de Negocio?
+Mini-Blog
+Domain 
+Artigo
+    Titulo
+    Texto
+    DataCriação
+    Ativo
+    Autor
+Autor
+    Nome
+Like
+    Quantidade
+    Usuario
+Usuarios:
+Visitante
+Admin
+    
+    
+  
+  
+
