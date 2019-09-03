@@ -1,17 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './routes'
+import Header from './components/header'
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>Post App</code>
-        </p>
-
-      </header>
-    </div>
+    <BrowserRouter>
+   <Header/>
+   <Routes/>
+   </BrowserRouter>
   );
 }
 
