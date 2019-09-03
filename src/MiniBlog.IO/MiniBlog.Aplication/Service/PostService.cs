@@ -23,5 +23,10 @@ namespace MiniBlog.Aplication.Service
         {
             await _repository.Add(obj);
         }
+
+        public async Task AddComment(string postId, Comment comment)
+        {
+            await _repository.AddComment(postId, comment);
+        }
     }
 }

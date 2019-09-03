@@ -26,9 +26,23 @@ namespace MiniBlog.Infrastructure.Repository
         {
             var post = _mapper.Map<PostModel>(obj);
             _dbContext.Posts.InsertOne(post);
+
             return Task.CompletedTask;
         }
 
+
+        public Task AddComment(string postId, Comment comment)
+        {
+            var _comment = _mapper.Map<CommentModel>(comment);
+         
+            var filter = Builders<PostModel>.Filter.And(
+                         Builders<PostModel>.Filter.Where(x => x.Id == postId));
+            var update = Builders<PostModel>.Update.Push(x => x.Comments, _comment);
+
+            _dbContext.Posts.FindOneAndUpdateAsync(filter, update);
+
+            return Task.CompletedTask;
+        }
 
         public async Task<IEnumerable<Post>> GetAll()
         {

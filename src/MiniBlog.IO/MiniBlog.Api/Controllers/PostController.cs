@@ -28,5 +28,11 @@ namespace MiniBlog.Api.Controllers
             _service.Add(post);
         }
 
+        [HttpPost("comment/{postId}")]
+        public void Post(string postId, [FromBody] Comment comment)
+        {
+            _service.AddComment(postId, comment);
+        }
+
     }
 }

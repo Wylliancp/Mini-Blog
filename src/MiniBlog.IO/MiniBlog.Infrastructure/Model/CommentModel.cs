@@ -7,8 +7,8 @@ namespace MiniBlog.Infrastructure.Model
     {
         [BsonElement("text")]
         public string Text { get; set; }
-        [BsonElement("author")]
-        public AuthorModel Author { get; set; }
+        [BsonElement("authorId")]
+        public string AuthorId { get; set; }
 
     }
 }
