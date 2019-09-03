@@ -1,20 +1,44 @@
 Modelo de Negocio?
 Mini-Blog
+
 Domain 
-Artigo
-    Titulo
-    Texto
-    DataCriação
-    Ativo
-    Autor
-Autor
-    Nome
-Like
-    Quantidade
-    Usuario
+Author
+	Posts	
+    Comments	
+Comment
+	Text	
+	Post	
+	Author	
+Post
+    Title
+    Text 
+    LikesCount 
+    Author 
+    Comments 
+Tenant
+	Name 
+	Host 
+	Title 
+User
+	Name
+
+
 Usuarios:
 Visitante
 Admin
+
+
+Estrutura do Projeto
+
+Src
+	MiniBlog.IO
+		MiniBlog.Api
+		MiniBlog.Aplication
+		MiniBlog.Dependency.IoC
+		MiniBlog.Domain
+		MiniBlog.Infrastructure
+Test
+Docs
     
     
   
