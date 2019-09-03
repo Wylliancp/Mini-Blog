@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace MiniBlog.Domain.Repository.Base
 {
-    public interface IBaseRepository<TEntity> : IDisposable where TEntity : class
+    public interface IBaseRepository<T>
     {
-        Task Add(TEntity obj);
-        Task<TEntity> GetById(Guid id);
-        Task<IEnumerable<TEntity>> GetAll();
-        Task Update(TEntity obj);
+        Task Add(T obj);
+        Task<T> GetById(Guid id);
+        Task<IEnumerable<T>> GetAll();
+        Task Update(T obj);
         Task Remove(Guid id);
     }
 }

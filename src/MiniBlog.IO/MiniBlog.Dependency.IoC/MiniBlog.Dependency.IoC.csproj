@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MiniBlog.Aplication\MiniBlog.Aplication.csproj" />
     <ProjectReference Include="..\MiniBlog.Domain\MiniBlog.Domain.csproj" />
     <ProjectReference Include="..\MiniBlog.Infrastructure\MiniBlog.Infrastructure.csproj" />
   </ItemGroup>

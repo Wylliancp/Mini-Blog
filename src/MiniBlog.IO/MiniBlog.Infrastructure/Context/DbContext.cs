@@ -1,4 +1,5 @@
 ﻿using MiniBlog.Domain.Entities;
+using MiniBlog.Infrastructure.Model;
 using MongoDB.Driver;
 using System;
 
@@ -29,11 +30,11 @@ namespace MiniBlog.Infrastructure.Repository
                 throw new Exception("Não foi possível se conectar com o servidor.", ex);
             }
         }
-        public IMongoCollection<Post> Posts
+        public IMongoCollection<PostModel> Posts
         {
             get
             {
-                return _dataBase.GetCollection<Post>("posts");
+                return _dataBase.GetCollection<PostModel>("post");
             }
         }
     }

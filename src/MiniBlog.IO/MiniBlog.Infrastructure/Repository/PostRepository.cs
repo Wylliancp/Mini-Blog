@@ -1,5 +1,7 @@
-﻿using MiniBlog.Domain.Entities;
-using MiniBlog.Domain.Repository.Base;
+﻿using AutoMapper;
+using MiniBlog.Domain.Entities;
+using MiniBlog.Domain.Repository;
+using MiniBlog.Infrastructure.Model;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -9,28 +11,26 @@ using System.Threading.Tasks;
 namespace MiniBlog.Infrastructure.Repository
 {
 
-    public class PostRepository : IBaseRepository<Post>
+    public class PostRepository : IPostRepository
     {
+        protected IMapper _mapper;
 
         private DbContext _dbContext;
-        public PostRepository(DbContext dbContext)
+        public PostRepository(DbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
+            _mapper = mapper;
         }
 
         public Task Add(Post obj)
         {
-            throw new NotImplementedException();
+            return _dbContext.Posts.InsertOneAsync(_mapper.Map<PostModel>(obj));
         }
 
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
 
         public async Task<IEnumerable<Post>> GetAll()
         {
-            return await _dbContext.Posts.AsQueryable().ToList();
+            return _mapper.Map<IEnumerable<Post>>(_dbContext.Posts.AsQueryable().ToList());
         }
 
         public Task<Post> GetById(Guid id)
@@ -47,5 +47,7 @@ namespace MiniBlog.Infrastructure.Repository
         {
             throw new NotImplementedException();
         }
+
+
     }
 }

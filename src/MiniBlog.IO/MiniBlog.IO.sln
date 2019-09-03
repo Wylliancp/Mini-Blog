@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29021.104
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniBlog.Infrastructure", "MiniBlog.Infrastructure\MiniBlog.Infrastructure.csproj", "{1214E111-4898-4C28-B58B-EA2AEE0751F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniBlog.Infrastructure", "MiniBlog.Infrastructure\MiniBlog.Infrastructure.csproj", "{1214E111-4898-4C28-B58B-EA2AEE0751F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniBlog.Domain", "MiniBlog.Domain\MiniBlog.Domain.csproj", "{51ED6DDC-D577-4344-A8A2-898B7DA7C49B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniBlog.Domain", "MiniBlog.Domain\MiniBlog.Domain.csproj", "{51ED6DDC-D577-4344-A8A2-898B7DA7C49B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniBlog.Aplication", "MiniBlog.Aplication\MiniBlog.Aplication.csproj", "{BD02DE54-FAB3-4B6F-A426-B9081B60BB51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniBlog.Aplication", "MiniBlog.Aplication\MiniBlog.Aplication.csproj", "{BD02DE54-FAB3-4B6F-A426-B9081B60BB51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniBlog.Dependency.IoC", "MiniBlog.Dependency.IoC\MiniBlog.Dependency.IoC.csproj", "{CB36DDF9-DAA1-4B9C-BB03-E8CFB119B57B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniBlog.Dependency.IoC", "MiniBlog.Dependency.IoC\MiniBlog.Dependency.IoC.csproj", "{CB36DDF9-DAA1-4B9C-BB03-E8CFB119B57B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniBlog.Api", "MiniBlog.Api\MiniBlog.Api.csproj", "{5A28B4D9-460E-45AC-8A9A-60968DA41256}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{CB36DDF9-DAA1-4B9C-BB03-E8CFB119B57B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB36DDF9-DAA1-4B9C-BB03-E8CFB119B57B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB36DDF9-DAA1-4B9C-BB03-E8CFB119B57B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A28B4D9-460E-45AC-8A9A-60968DA41256}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A28B4D9-460E-45AC-8A9A-60968DA41256}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A28B4D9-460E-45AC-8A9A-60968DA41256}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A28B4D9-460E-45AC-8A9A-60968DA41256}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
