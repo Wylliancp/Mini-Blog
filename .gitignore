@@ -13,3 +13,18 @@
 /src/MiniBlog.IO/MiniBlog.Domain/obj
 /src/MiniBlog.IO/MiniBlog.Infrastructure/bin/Debug/netstandard2.0
 /src/MiniBlog.IO/MiniBlog.Infrastructure/obj
+
+
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
