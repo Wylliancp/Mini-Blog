@@ -16,6 +16,6 @@ namespace MiniBlog.Infrastructure.Model.Base
         public DateTime Modified { get; set; }
         [BsonElement("isdeleted")]
 
-        public bool IsDeleted { get; set; }
+        public bool IsDeleted { get; set; } = false;
     }
 }
