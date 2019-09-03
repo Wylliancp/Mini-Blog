@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MiniBlog.Api.Middleware;
 using MiniBlog.Dependency.IoC;
 using MiniBlog.Infrastructure.Repository;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace MiniBlog.Api
 {
@@ -29,6 +30,17 @@ namespace MiniBlog.Api
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.RegisterServices();
             services.AddAutoMapper(typeof(MiniBlog.Infrastructure.Map.MappingProfile));
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info
+                {
+                    Version = "v1",
+                    Title = "Post API",
+                    Description = "Post ASP.NET Core Web API",
+                    TermsOfService = "None",
+                    Contact = new Contact() { Name = "Talking Dotnet", Email = "teste@teste.com", Url = "www.teste.com" }
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +59,12 @@ namespace MiniBlog.Api
             //app.UseHttpsRedirection();
             app.UseMiddleware<TenantProviderMiddleware>();
             app.UseMvc();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Post API V1");
+            });
+
         }
     }
 }
