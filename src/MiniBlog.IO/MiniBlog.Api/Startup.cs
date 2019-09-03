@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MiniBlog.Api.Middleware;
 using MiniBlog.Dependency.IoC;
 using MiniBlog.Infrastructure.Repository;
 
@@ -44,6 +45,7 @@ namespace MiniBlog.Api
             }
 
             //app.UseHttpsRedirection();
+            app.UseMiddleware<TenantProviderMiddleware>();
             app.UseMvc();
         }
     }

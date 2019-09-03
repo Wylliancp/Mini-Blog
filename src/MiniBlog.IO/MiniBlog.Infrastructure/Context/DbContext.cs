@@ -37,5 +37,12 @@ namespace MiniBlog.Infrastructure.Repository
                 return _dataBase.GetCollection<PostModel>("post");
             }
         }
+
+        public Tenant Tenant(string host)
+        {
+
+            return _dataBase.GetCollection<Tenant>("tenants").Find(x => x.Host.ToLower() == host).FirstOrDefault();
+
+        }
     }
 }
