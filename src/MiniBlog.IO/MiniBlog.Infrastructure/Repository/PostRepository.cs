@@ -13,9 +13,9 @@ namespace MiniBlog.Infrastructure.Repository
 
     public class PostRepository : IPostRepository
     {
-        protected IMapper _mapper;
+        private readonly IMapper _mapper;
+        private readonly DbContext _dbContext;
 
-        private DbContext _dbContext;
         public PostRepository(DbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
@@ -24,24 +24,18 @@ namespace MiniBlog.Infrastructure.Repository
 
         public Task Add(Post obj)
         {
-            var post = _mapper.Map<PostModel>(obj);
-            _dbContext.Posts.InsertOne(post);
-
-            return Task.CompletedTask;
+            return _dbContext.Posts.InsertOneAsync(_mapper.Map<PostModel>(obj));
         }
-
 
         public Task AddComment(string postId, Comment comment)
         {
             var _comment = _mapper.Map<CommentModel>(comment);
-         
+
             var filter = Builders<PostModel>.Filter.And(
                          Builders<PostModel>.Filter.Where(x => x.Id == postId));
             var update = Builders<PostModel>.Update.Push(x => x.Comments, _comment);
 
-            _dbContext.Posts.FindOneAndUpdateAsync(filter, update);
-
-            return Task.CompletedTask;
+            return _dbContext.Posts.FindOneAndUpdateAsync(filter, update);
         }
 
         public async Task<IEnumerable<Post>> GetAll()
@@ -63,7 +57,5 @@ namespace MiniBlog.Infrastructure.Repository
         {
             throw new NotImplementedException();
         }
-
-
     }
 }
