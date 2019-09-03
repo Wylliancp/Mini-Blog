@@ -31,8 +31,10 @@ namespace MiniBlog.Infrastructure.Repository
         {
             var _comment = _mapper.Map<CommentModel>(comment);
 
+            var _id = MongoDB.Bson.ObjectId.Parse(postId);
+
             var filter = Builders<PostModel>.Filter.And(
-                         Builders<PostModel>.Filter.Where(x => x.Id == postId));
+                         Builders<PostModel>.Filter.Where(x => x.Id == _id));
             var update = Builders<PostModel>.Update.Push(x => x.Comments, _comment);
 
             return _dbContext.Posts.FindOneAndUpdateAsync(filter, update);

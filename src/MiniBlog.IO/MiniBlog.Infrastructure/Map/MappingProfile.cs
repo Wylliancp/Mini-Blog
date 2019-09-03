@@ -1,6 +1,9 @@
 ﻿using AutoMapper;
 using MiniBlog.Domain.Entities;
 using MiniBlog.Infrastructure.Model;
+using MongoDB.Bson;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MiniBlog.Infrastructure.Map
 {
@@ -8,25 +11,14 @@ namespace MiniBlog.Infrastructure.Map
     {
         public MappingProfile()
         {
+            CreateMap<List<ObjectId>, List<string>>().ConvertUsing(o => o.Select(os => os.ToString()).ToList());
+            CreateMap<List<string>, List<ObjectId>>().ConvertUsing(o => o.Select(os => ObjectId.Parse(os)).ToList());
+            CreateMap<ObjectId, string>().ConvertUsing(o => o.ToString());
+            CreateMap<string, ObjectId>().ConvertUsing(s => ObjectId.Parse(s));
             CreateMap<Post, PostModel>().ReverseMap();
             CreateMap<Author, AuthorModel>().ReverseMap();
             CreateMap<Comment, CommentModel>().ReverseMap();
-            //        .ForMember(dest => dest.Id, s => s.MapFrom(o => o.Id))
-            //        .ForMember(dest => dest.Created, s => s.MapFrom(o => o.Created))
-            //        .ForMember(dest => dest.Modified, s => s.MapFrom(o => o.Modified))
-            //        .ForMember(dest => dest.IsDeleted, s => s.MapFrom(o => o.IsDeleted))
-            //        .ForMember(dest => dest.Title, s => s.MapFrom(o => o.Title))
-            //        .ForMember(dest => dest.Text, s => s.MapFrom(o => o.Text))
-            //        .ForMember(dest => dest.LikesCount, s => s.MapFrom(o => o.LikesCount));
-
-            //CreateMap<PostModel, Post>()
-            //        .ForMember(dest => dest.Id, s => s.MapFrom(o => o.Id))
-            //        .ForMember(dest => dest.Created, s => s.MapFrom(o => o.Created))
-            //        .ForMember(dest => dest.Modified, s => s.MapFrom(o => o.Modified))
-            //        .ForMember(dest => dest.IsDeleted, s => s.MapFrom(o => o.IsDeleted))
-            //        .ForMember(dest => dest.Title, s => s.MapFrom(o => o.Title))
-            //        .ForMember(dest => dest.Text, s => s.MapFrom(o => o.Text))
-            //        .ForMember(dest => dest.LikesCount, s => s.MapFrom(o => o.LikesCount));
+            
         }
     }
 }
