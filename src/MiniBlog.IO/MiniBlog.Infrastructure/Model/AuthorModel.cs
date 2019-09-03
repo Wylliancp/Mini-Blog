@@ -1,11 +1,11 @@
 ﻿using MiniBlog.Infrastructure.Model.Base;
-using System.Collections.Generic;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace MiniBlog.Infrastructure.Model
 {
     public class AuthorModel : BaseModel
     {
+        [BsonElement("name")]
         public string Name { get; set; }
-        public ICollection<PostModel> Posts { get; set; }
     }
 }

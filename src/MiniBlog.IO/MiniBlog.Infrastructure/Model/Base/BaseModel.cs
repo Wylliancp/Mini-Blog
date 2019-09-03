@@ -8,8 +8,11 @@ namespace MiniBlog.Infrastructure.Model.Base
     {
         [BsonId, BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
+        [BsonElement("created")]
         public DateTime Created { get; set; }
+        [BsonElement("modified")]
         public DateTime Modified { get; set; }
+        [BsonElement("isdeleted")]
 
         public bool IsDeleted { get; set; }
     }
