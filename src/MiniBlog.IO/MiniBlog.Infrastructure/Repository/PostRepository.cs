@@ -24,29 +24,14 @@ namespace MiniBlog.Infrastructure.Repository
 
         public Task Add(Post obj)
         {
-            //var post = _mapper.Map<PostModel>(obj);
-
-            var post = new PostModel()
-            {
-                Title = "Title LEANDRO SILVEIRA",
-                Text = "Text  123",
-                Created = DateTime.Now,
-                Author = new AuthorModel()
-                {
-                    Name = "Kid BB"
-                },
-                Comments = new List<CommentModel>() { new CommentModel { Text = "hahah aha ha" } }
-
-            };
-            _dbContext.Posts.InsertOne(post);
+            _dbContext.Posts.InsertOne(_mapper.Map<PostModel>(obj));
             return Task.CompletedTask;
         }
 
 
         public async Task<IEnumerable<Post>> GetAll()
         {
-            var posts = _dbContext.Posts.AsQueryable().ToList();
-            return _mapper.Map<IEnumerable<Post>>(posts);
+            return _mapper.Map<IEnumerable<Post>>(_dbContext.Posts.AsQueryable().ToList());
         }
 
         public Task<Post> GetById(Guid id)

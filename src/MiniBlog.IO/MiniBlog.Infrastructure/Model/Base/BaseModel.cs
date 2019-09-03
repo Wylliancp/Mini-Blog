@@ -6,8 +6,9 @@ namespace MiniBlog.Infrastructure.Model.Base
 {
     public abstract class BaseModel
     {
-        [BsonId, BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
+        [BsonId]
+        [BsonElement("_id")]
+        public ObjectId Id { get; set; }
         [BsonElement("created")]
         public DateTime Created { get; set; }
         [BsonElement("modified")]

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace MiniBlog.Infrastructure.Model
 {
+    [BsonIgnoreExtraElements]
     public class PostModel : BaseModel
     {
         [BsonElement("title")]
