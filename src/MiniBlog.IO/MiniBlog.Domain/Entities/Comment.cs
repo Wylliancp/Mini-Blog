@@ -1,5 +1,4 @@
 ﻿using MiniBlog.Domain.Entities.Base;
-using System.Collections.Generic;
 
 namespace MiniBlog.Domain.Entities
 {
