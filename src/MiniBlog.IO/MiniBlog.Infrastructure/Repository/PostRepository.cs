@@ -24,7 +24,8 @@ namespace MiniBlog.Infrastructure.Repository
 
         public Task Add(Post obj)
         {
-            _dbContext.Posts.InsertOne(_mapper.Map<PostModel>(obj));
+            var post = _mapper.Map<PostModel>(obj);
+            _dbContext.Posts.InsertOne(post);
             return Task.CompletedTask;
         }
 
